@@ -1,35 +1,21 @@
 import express from 'express';
+import { openCheckingAccount, openSavingsAccount, transferMoney, getBalance, getTransactionHistory } from '../controllers/userController.js';
 
 const router = express.Router();
 
 // Mở tài khoản thanh toán
-router.post('/open-checking-account', (req, res) => {
-    // Xử lý mở tài khoản thanh toán
-    res.send('Checking account opened');
-});
+router.post('/open-checking-account', openCheckingAccount);
 
 // Mở tài khoản tiết kiệm
-router.post('/open-savings-account', (req, res) => {
-    // Xử lý mở tài khoản tiết kiệm
-    res.send('Savings account opened');
-});
+router.post('/open-savings-account', openSavingsAccount);
 
 // Chuyển tiền
-router.post('/transfer', (req, res) => {
-    // Xử lý chuyển tiền
-    res.send('Transfer completed');
-});
+router.post('/transfer', transferMoney);
 
 // Xem số dư
-router.get('/balance', (req, res) => {
-    // Xử lý xem số dư
-    res.send('Current balance is ...');
-});
+router.get('/balance', getBalance);
 
 // Lịch sử giao dịch
-router.get('/transactions', (req, res) => {
-    // Xử lý lấy lịch sử giao dịch
-    res.send('Transaction history ...');
-});
+router.get('/transactions', getTransactionHistory);
 
 export default router;
